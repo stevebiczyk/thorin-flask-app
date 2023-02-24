@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-{{ company[1]["name"] }}
-
 <h2>{{ page_title }}</h2>
 
 <p>The formation of the group grew out of a meeting Gandalf had with Thorin in Bree which kindled Thorin's interest in
@@ -12,6 +10,26 @@
     also believed that someone like Bilbo could keep the sometimes prideful and stubborn Dwarves from rash action. The
     superstitious Dwarves also considered thirteen to be an unlucky number, and as Gandalf had planned to leave on other
     business, welcomed a fourteenth to fill into their party.</p>
+
+{% for member in company %}
+
+{{ loop.index }}
+
+<div class="row featurette">
+    <div class="col-md-7">
+        <h3>{{ member.name }}</h3>
+        <p>{{ member.description }}</p>
+    </div>
+    <div class="col-md-5">
+        <img src="{{ member.image_source }}" alt="" class="featurette-image image-responsive">
+    </div>
+</div>
+
+<hr class="featurette-divider">
+
+{% endfor %}
+
+<!--
 
 <div class="row featurette">
     <div class="col-md-7">
@@ -216,5 +234,5 @@
         <img src="https://vignette.wikia.nocookie.net/lotr/images/e/e7/Gandalf_the_Grey.jpg" alt="">
     </div>
 </div>
-
+-->
 {% endblock %}
